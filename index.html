@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+    <title>Developer Portfolio</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,10 +11,11 @@
     <!-- Navigation -->
     <header>
         <nav class="navbar">
-            <h2 class="logo">MyPortfolio</h2>
+            <h2 class="logo">DevProfile</h2>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -23,36 +24,59 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <h1>Hello, I'm <span>Your Name</span></h1>
-        <p>Frontend Developer | Designer | Creator</p>
-        <button onclick="scrollToSection('projects')" class="btn">View My Work</button>
+        <h1>Hi, I'm <span>Your Name</span></h1>
+        <p>Full-Stack Developer | Problem Solver | Tech Enthusiast</p>
+        <div class="social-links">
+            <a href="#" target="_blank">GitHub</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">Resume</a>
+        </div>
+        <button onclick="scrollToSection('projects')" class="btn">Explore My Work</button>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <h2>About Me</h2>
         <p>
-            I am a passionate developer who loves building beautiful and functional websites.
-            I enjoy learning new technologies and improving my skills every day.
+            I'm a passionate developer who enjoys building full-stack applications,
+            exploring modern web technologies, and solving real-world problems through code.
+            I love working with JavaScript, React, Node.js, and cloud technologies.
         </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>Skills & Tech Stack</h2>
+        <div class="skill-grid">
+            <div class="skill-card">HTML / CSS / JavaScript</div>
+            <div class="skill-card">React / Next.js</div>
+            <div class="skill-card">Node.js / Express</div>
+            <div class="skill-card">MongoDB / SQL</div>
+            <div class="skill-card">Git / GitHub</div>
+            <div class="skill-card">API Development</div>
+        </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <h2>Projects</h2>
         <div class="project-grid">
+
             <div class="project-card">
-                <h3>Project One</h3>
-                <p>A short description of your project.</p>
+                <h3>Portfolio Website</h3>
+                <p>A personal portfolio built using HTML, CSS, and JavaScript.</p>
             </div>
+
             <div class="project-card">
-                <h3>Project Two</h3>
-                <p>Another cool project you made.</p>
+                <h3>Task Manager App</h3>
+                <p>A MERN stack app for managing daily tasks.</p>
             </div>
+
             <div class="project-card">
-                <h3>Project Three</h3>
-                <p>A description of a third project.</p>
+                <h3>Weather App</h3>
+                <p>A real-time weather dashboard using a public API.</p>
             </div>
+
         </div>
     </section>
 
