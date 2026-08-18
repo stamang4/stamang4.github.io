@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Your Name — Senior Software Engineer</title>
+  <meta
+    name="description"
+    content="Portfolio of Your Name, a senior software engineer building scalable, reliable, and high-performance products."
+  />
+
+  <style>
+    :root {
+      --bg: #07090c;
+      --bg-soft: #0c1015;
+      --surface: #10151c;
+      --surface-hover: #151c25;
+      --border: #202a35;
+
+      --text: #f4f7fa;
+      --text-soft: #a7b0bb;
+      --text-muted: #6f7a86;
+
+      --accent: #38d39f;
+      --accent-bright: #64f0bd;
+      --accent-dark: #153d31;
+
+      --blue: #5ca8ff;
+
+      --max-width: 1180px;
+      --radius: 14px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: #06100c;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* ---------------- NAVIGATION ---------------- */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      background: rgba(7, 9, 12, 0.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid var(--accent);
+      color: var(--accent);
+
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      padding: 9px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+    }
+
+    .nav-cta:hover {
+      border-color: var(--accent);
+      color: var(--accent) !important;
+    }
+
+    /* ---------------- HERO ---------------- */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+
+      padding-top: 100px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+
+      width: 600px;
+      height: 600px;
+
+      top: 5%;
+      right: -200px;
+
+      background: radial-gradient(
+        circle,
+        rgba(56, 211, 159, 0.10),
+        transparent 68%
+      );
+
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      margin-bottom: 24px;
+
+      color: var(--accent);
+      font-family: monospace;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    h1 {
+      max-width: 800px;
+
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+
+      margin-bottom: 28px;
+    }
+
+    .hero h1 span {
+      color: var(--text-muted);
+    }
+
+    .hero-description {
+      max-width: 670px;
+
+      color: var(--text-soft);
+      font-size: 18px;
+      line-height: 1.8;
+
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      padding: 13px 20px;
+
+      border-radius: 9px;
+      border: 1px solid var(--border);
+
+      font-size: 14px;
+      font-weight: 700;
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #06100c;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-bright);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: #394653;
+      background: var(--surface-hover);
+    }
+
+    /* Code card */
+
+    .code-card {
+      background: #090c10;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.35),
+        inset 0 1px rgba(255,255,255,0.025);
+
+      overflow: hidden;
+    }
+
+    .window-bar {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      padding: 0 15px;
+
+      border-bottom: 1px solid var(--border);
+      background: #0c1015;
+    }
+
+    .window-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #29323c;
+    }
+
+    .window-title {
+      margin-left: 8px;
+      color: var(--text-muted);
+      font-family: monospace;
+      font-size: 11px;
+    }
+
+    pre {
+      padding: 25px;
+
+      color: #b7c4d0;
+
+      font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+      font-size: 13px;
+      line-height: 1.9;
+
+      overflow-x: auto;
+    }
+
+    .code-keyword {
+      color: #65aaff;
+    }
+
+    .code-property {
+      color: var(--accent);
+    }
+
+    .code-string {
+      color: #d6b56b;
+    }
+
+    .code-comment {
+      color: #53616e;
+    }
+
+    /* ---------------- SECTIONS ---------------- */
+
+    section {
+      padding: 120px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+
+      margin-bottom: 55px;
+    }
+
+    .section-number {
+      color: var(--accent);
+      font-family: monospace;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .section-description {
+      max-width: 480px;
+      color: var(--text-soft);
+      font-size: 15px;
+    }
+
+    /* ---------------- METRICS ---------------- */
+
+    .metrics {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+
+      background: var(--bg-soft);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .metric {
+      padding: 35px 25px;
+      border-right: 1px solid var(--border);
+    }
+
+    .metric:first-child {
+      padding-left: 0;
+    }
+
+    .metric:last-child {
+      border-right: none;
+    }
+
+    .metric-value {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .metric-label {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    /* ---------------- ABOUT ---------------- */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 90px;
+    }
+
+    .about-text {
+      color: var(--text-soft);
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .about-text p + p {
+      margin-top: 20px;
+    }
+
+    .principles {
+      display: grid;
+      gap: 12px;
+    }
+
+    .principle {
+      padding: 22px;
+
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      transition: border-color 0.2s ease;
+    }
+
+    .principle:hover {
+      border-color: #35424f;
+    }
+
+    .principle h3 {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .principle p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* ---------------- PROJECTS ---------------- */
+
+    .projects {
+      background: var(--bg-soft);
+    }
+
+    .project-list {
+      display: grid;
+      gap: 20px;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 330px;
+
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      border-color: #35424f;
+    }
+
+    .project-info {
+      padding: 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-label {
+      color: var(--accent);
+      font-family: monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .project h3 {
+      font-size: 27px;
+      letter-spacing: -0.035em;
+      margin: 12px 0;
+    }
+
+    .project-description {
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .project-impact {
+      margin-top: 20px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .project-impact span {
+      color: var(--accent);
+    }
+
+    .tags {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+
+      border: 1px solid var(--border);
+      border-radius: 5px;
+
+      color: var(--text-muted);
+      font-family: monospace;
+      font-size: 10px;
+    }
+
+    .project-visual {
+      min-height: 330px;
+
+      display: grid;
+      place-items: center;
+
+      background:
+        linear-gradient(rgba(56,211,159,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56,211,159,0.03) 1px, transparent 1px),
+        #080c10;
+
+      background-size: 35px 35px;
+
+      border-left: 1px solid var(--border);
+    }
+
+    .architecture {
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .arch-node {
+      padding: 13px 15px;
+
+      border: 1px solid #2c3945;
+      background: #0d1319;
+
+      color: var(--text-soft);
+      font-family: monospace;
+      font-size: 11px;
+
+      text-align: center;
+      border-radius: 6px;
+    }
+
+    .arch-node.main {
+      color: var(--accent);
+      border-color: #225542;
+      background: #0d1915;
+    }
+
+    .arch-line {
+      width: 1px;
+      height: 28px;
+      margin: 0 auto;
+      background: #2c3945;
+    }
+
+    .arch-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    /* ---------------- EXPERIENCE ---------------- */
+
+    .experience-list {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .experience {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 35px;
+
+      padding: 35px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .experience:first-child {
+      padding-top: 0;
+    }
+
+    .experience-date {
+      color: var(--text-muted);
+      font-family: monospace;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .experience h3 {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .company {
+      color: var(--accent);
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .experience ul {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+
+    .experience li {
+      color: var(--text-soft);
+      font-size: 14px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .experience li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* ---------------- SKILLS ---------------- */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .skill-group {
+      padding: 27px;
+
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .skill-group h3 {
+      font-size: 14px;
+      margin-bottom: 17px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .skill {
+      padding: 6px 9px;
+
+      color: var(--text-soft);
+      background: #0b1015;
+
+      border: 1px solid var(--border);
+      border-radius: 5px;
+
+      font-family: monospace;
+      font-size: 11px;
+    }
+
+    /* ---------------- CONTACT ---------------- */
+
+    .contact {
+      text-align: center;
+      padding-bottom: 140px;
+    }
+
+    .contact-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .contact h2 {
+      font-size: clamp(42px, 6vw, 70px);
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      color: var(--text-soft);
+      margin-bottom: 30px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer {
+      padding: 25px 0;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--text-muted);
+      font-family: monospace;
+      font-size: 11px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .code-card {
+        max-width: 650px;
+      }
+
+      .metric-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .metric:nth-child(2) {
+        border-right: none;
+      }
+
+      .metric:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+      }
+
+      .project-visual {
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(var(--max-width), calc(100% - 28px));
+      }
+
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 150px 0 90px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .section-header {
+        display: block;
+      }
+
+      .section-description {
+        margin-top: 20px;
+      }
+
+      .metric {
+        padding: 25px 15px;
+      }
+
+      .metric:first-child {
+        padding-left: 0;
+      }
+
+      .about-grid {
+        gap: 40px;
+      }
+
+      .project-info {
+        padding: 25px;
+      }
+
+      .project h3 {
+        font-size: 23px;
+      }
+
+      .experience {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAV ================= -->
+
+  <nav>
+    <div class="container nav-inner">
+
+      <a href="#" class="logo">
+        <span class="logo-mark">&lt;/&gt;</span>
+        <span>YourName.dev</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">Let's talk</a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- ================= HERO ================= -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div>
+
+          <div class="eyebrow">
+            <span class="status-dot"></span>
+            AVAILABLE FOR SELECTED OPPORTUNITIES
+          </div>
+
+          <h1>
+            I build software
+            <span>that scales.</span>
+          </h1>
+
+          <p class="hero-description">
+            Senior software engineer focused on building reliable,
+            high-performance products and distributed systems.
+            I turn complex engineering problems into simple,
+            maintainable solutions.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-primary">
+              View my work →
+            </a>
+
+            <a href="mailto:you@example.com" class="btn btn-secondary">
+              Get in touch
+            </a>
+          </div>
+
+        </div>
+
+
+        <div class="code-card">
+
+          <div class="window-bar">
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+            <span class="window-title">engineer.config.js</span>
+          </div>
+
+<pre><span class="code-keyword">const</span> engineer = {
+  <span class="code-property">name</span>: <span class="code-string">"Your Name"</span>,
+
+  <span class="code-property">role</span>: <span class="code-string">"Senior Software Engineer"</span>,
+
+  <span class="code-property">focus</span>: [
+    <span class="code-string">"Distributed Systems"</span>,
+    <span class="code-string">"Cloud Architecture"</span>,
+    <span class="code-string">"Developer Experience"</span>
+  ],
+
+  <span class="code-property">principles</span>: {
+    <span class="code-property">quality</span>: <span class="code-string">"non-negotiable"</span>,
+    <span class="code-property">complexity</span>: <span class="code-string">"minimize"</span>,
+    <span class="code-property">impact</span>: <span class="code-string">"maximize"</span>
+  }
+};</pre>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= METRICS ================= -->
+
+    <section class="metrics">
+
+      <div class="container metric-grid">
+
+        <div class="metric">
+          <div class="metric-value">8+</div>
+          <div class="metric-label">Years engineering</div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-value">20M+</div>
+          <div class="metric-label">Requests handled / day</div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-value">40%</div>
+          <div class="metric-label">Performance improvement</div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-value">99.99%</div>
+          <div class="metric-label">Production availability</div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+            <div class="section-number">01 — ABOUT</div>
+            <h2>Engineering with intent.</h2>
+          </div>
+
+          <p class="section-description">
+            I care about the intersection of excellent engineering,
+            product thinking, and measurable business impact.
+          </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+          <div class="about-text">
+
+            <p>
+              I'm a software engineer who enjoys working on difficult
+              technical problems: distributed systems, backend
+              architecture, performance, reliability, and developer
+              tooling.
+            </p>
+
+            <p>
+              My approach is deliberately pragmatic. I don't optimize
+              for complexity or technology for its own sake. I build
+              systems that teams can understand, operate, and evolve.
+            </p>
+
+            <p>
+              I also enjoy mentoring engineers, improving engineering
+              processes, and partnering with product teams to turn
+              ambiguous problems into shippable solutions.
+            </p>
+
+          </div>
+
+
+          <div class="principles">
+
+            <div class="principle">
+              <h3>01 / Ownership</h3>
+              <p>
+                I take responsibility from architecture through
+                production and long-term maintenance.
+              </p>
+            </div>
+
+            <div class="principle">
+              <h3>02 / Simplicity</h3>
+              <p>
+                The best architecture is often the simplest one that
+                solves the actual problem.
+              </p>
+            </div>
+
+            <div class="principle">
+              <h3>03 / Reliability</h3>
+              <p>
+                Observability, failure modes, testing, and operational
+                excellence are part of the design.
+              </p>
+            </div>
+
+            <div class="principle">
+              <h3>04 / Impact</h3>
+              <p>
+                Engineering decisions should ultimately create value
+                for users and the business.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+
+    <section id="work" class="projects">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+            <div class="section-number">02 — SELECTED WORK</div>
+            <h2>Things I've built.</h2>
+          </div>
+
+          <p class="section-description">
+            A selection of projects demonstrating architecture,
+            technical depth, and measurable outcomes.
+          </p>
+
+        </div>
+
+
+        <div class="project-list">
+
+
+          <!-- PROJECT 1 -->
+
+          <article class="project">
+
+            <div class="project-info">
+
+              <div>
+
+                <div class="project-label">
+                  Distributed systems
+                </div>
+
+                <h3>Event Processing Platform</h3>
+
+                <p class="project-description">
+                  Designed and implemented a distributed event
+                  processing platform capable of handling millions
+                  of events per day with retry, idempotency,
+                  observability, and horizontal scaling.
+                </p>
+
+                <p class="project-impact">
+                  Impact:
+                  <span>60% lower processing latency</span>
+                </p>
+
+                <div class="tags">
+                  <span class="tag">Go</span>
+                  <span class="tag">Kafka</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">AWS</span>
+                  <span class="tag">Docker</span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="project-visual">
+
+              <div class="architecture">
+
+                <div class="arch-node">
+                  API / Producers
+                </div>
+
+                <div class="arch-line"></div>
+
+                <div class="arch-node main">
+                  Event Stream
+                </div>
+
+                <div class="arch-line"></div>
+
+                <div class="arch-row">
+                  <div class="arch-node">Worker A</div>
+                  <div class="arch-node">Worker B</div>
+                </div>
+
+                <div class="arch-line"></div>
+
+                <div class="arch-row">
+                  <div class="arch-node">Database</div>
+                  <div class="arch-node">Analytics</div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 2 -->
+
+          <article class="project">
+
+            <div class="project-info">
+
+              <div>
+
+                <div class="project-label">
+                  Performance engineering
+                </div>
+
+                <h3>High-Performance API</h3>
+
+                <p class="project-description">
+                  Re-architected a critical API path by introducing
+                  caching, query optimization, connection pooling,
+                  and asynchronous processing.
+                </p>
+
+                <p class="project-impact">
+                  Impact:
+                  <span>40% faster p95 response time</span>
+                </p>
+
+                <div class="tags">
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Node.js</span>
+                  <span class="tag">Redis</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">Kubernetes</span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="project-visual">
+
+              <div class="architecture">
+
+                <div class="arch-node">
+                  Client
+                </div>
+
+                <div class="arch-line"></div>
+
+                <div class="arch-node main">
+                  API Gateway
+                </div>
+
+                <div class="arch-line"></div>
+
+                <div class="arch-row">
+                  <div class="arch-node">Cache</div>
+                  <div class="arch-node">Queue</div>
+                </div>
+
+                <div class="arch-line"></div>
+
+                <div class="arch-node">
+                  Service Layer
+                </div>
+
+                <div class="arch-line"></div>
+
+                <div class="arch-node">
+                  Primary Database
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 3 -->
+
+          <article class="project">
+
+            <div class="project-info">
+
+              <div>
+
+                <div class="project-label">
+                  Developer experience
+                </div>
+
+                <h3>Internal Developer Platform</h3>
+
+                <p class="project-description">
+                  Built tooling that standardized service creation,
+                  CI/CD, observability, deployments, and local
+                  development across multiple engineering teams.
+                </p>
+
+                <p class="project-impact">
+                  Impact:
+                  <span>Deployment time reduced from hours to minutes</span>
+                </p>
+
+                <div class="tags">
+                  <span class="tag">React</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">Terraform</span>
+                  <span class="tag">GitHub Actions</span>
+                  <span class="tag">AWS</span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="project-visual">
+
+              <div class="architecture">
+
+                <div class="arch-node main">
+                  Developer Portal
+                </div>
+
+                <div class="arch-line"></div>
+
+                <div class="arch-row">
+                  <div class="arch-node">CI/CD</div>
+                  <div class="arch-node">Infrastructure</div>
+                </div>
+
+                <div class="arch-line"></div>
+
+                <div class="arch-row">
+                  <div class="arch-node">Monitoring</div>
+                  <div class="arch-node">Deployments</div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= EXPERIENCE ================= -->
+
+    <section id="experience">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+            <div class="section-number">03 — EXPERIENCE</div>
+            <h2>Where I've worked.</h2>
+          </div>
+
+        </div>
+
+
+        <div class="experience-list">
+
+
+          <article class="experience">
+
+            <div class="experience-date">
+              2022 — PRESENT
+            </div>
+
+            <div>
+
+              <h3>Senior Software Engineer</h3>
+
+              <div class="company">
+                COMPANY NAME
+              </div>
+
+              <ul>
+                <li>
+                  Led architecture for services processing millions
+                  of requests per day.
+                </li>
+
+                <li>
+                  Reduced infrastructure costs by 28% through
+                  capacity planning and system optimization.
+                </li>
+
+                <li>
+                  Mentored engineers and established engineering
+                  standards for testing and observability.
+                </li>
+              </ul>
+
+            </div>
+
+          </article>
+
+
+          <article class="experience">
+
+            <div class="experience-date">
+              2019 — 2022
+            </div>
+
+            <div>
+
+              <h3>Software Engineer</h3>
+
+              <div class="company">
+                PREVIOUS COMPANY
+              </div>
+
+              <ul>
+                <li>
+                  Built customer-facing APIs and backend services
+                  used by thousands of customers.
+                </li>
+
+                <li>
+                  Introduced automated testing and deployment
+                  workflows that significantly reduced release risk.
+                </li>
+
+                <li>
+                  Collaborated with product and design to ship
+                  high-impact features.
+                </li>
+              </ul>
+
+            </div>
+
+          </article>
+
+
+          <article class="experience">
+
+            <div class="experience-date">
+              2017 — 2019
+            </div>
+
+            <div>
+
+              <h3>Software Engineer</h3>
+
+              <div class="company">
+                EARLIER COMPANY
+              </div>
+
+              <ul>
+                <li>
+                  Developed scalable backend services and internal
+                  tools.
+                </li>
+
+                <li>
+                  Improved application performance and reliability
+                  through profiling and systematic debugging.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SKILLS ================= -->
+
+    <section id="skills" class="projects">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+            <div class="section-number">04 — TOOLKIT</div>
+            <h2>Technologies I use.</h2>
+          </div>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+          <div class="skill-group">
+
+            <h3>Languages</h3>
+
+            <div class="skill-list">
+              <span class="skill">TypeScript</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">Python</span>
+              <span class="skill">Go</span>
+              <span class="skill">Java</span>
+              <span class="skill">SQL</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-group">
+
+            <h3>Backend & Data</h3>
+
+            <div class="skill-list">
+              <span class="skill">Node.js</span>
+              <span class="skill">PostgreSQL</span>
+              <span class="skill">Redis</span>
+              <span class="skill">Kafka</span>
+              <span class="skill">REST</span>
+              <span class="skill">GraphQL</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-group">
+
+            <h3>Cloud & Infrastructure</h3>
+
+            <div class="skill-list">
+              <span class="skill">AWS</span>
+              <span class="skill">Docker</span>
+              <span class="skill">Kubernetes</span>
+              <span class="skill">Terraform</span>
+              <span class="skill">CI/CD</span>
+              <span class="skill">Linux</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-group">
+
+            <h3>Frontend</h3>
+
+            <div class="skill-list">
+              <span class="skill">React</span>
+              <span class="skill">Next.js</span>
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">Tailwind</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-group">
+
+            <h3>Engineering</h3>
+
+            <div class="skill-list">
+              <span class="skill">System Design</span>
+              <span class="skill">Architecture</span>
+              <span class="skill">Observability</span>
+              <span class="skill">Testing</span>
+              <span class="skill">Performance</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-group">
+
+            <h3>Leadership</h3>
+
+            <div class="skill-list">
+              <span class="skill">Mentoring</span>
+              <span class="skill">Technical Strategy</span>
+              <span class="skill">Code Review</span>
+              <span class="skill">Hiring</span>
+              <span class="skill">Product Thinking</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section id="contact" class="contact">
+
+      <div class="container contact-inner">
+
+        <div class="section-number">
+          05 — CONTACT
+        </div>
+
+        <h2>Let's build something useful.</h2>
+
+        <p>
+          I'm interested in ambitious engineering problems,
+          strong teams, and products that people actually use.
+        </p>
+
+        <div class="contact-links">
+
+          <a
+            href="mailto:you@example.com"
+            class="btn btn-primary"
+          >
+            Email me →
+          </a>
+
+          <a
+            href="https://github.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://linkedin.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+          >
+            LinkedIn
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <span>
+        © 2026 Your Name
+      </span>
+
+      <span>
+        Built with HTML, CSS & JavaScript.
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+    // Small interaction: highlight navigation section while scrolling.
+
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+              link.style.color = "";
+
+              if (
+                link.getAttribute("href") === "#" + entry.target.id
+              ) {
+                link.style.color = "var(--accent)";
+              }
+            });
+          }
+        });
+      },
+      {
+        rootMargin: "-35% 0px -55% 0px"
+      }
+    );
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+</html>
